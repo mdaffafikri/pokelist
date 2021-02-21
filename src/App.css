@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+.navbar{
+  border-left: solid 12px crimson;
+}
+
+.thead-dark{
+  border-top: solid 7px crimson;
+}
+
+.pointer:hover{
+  box-shadow:inset 7px 0px 0px 0px crimson;
+}
+
+td{
+  line-height: 50px;
+}
