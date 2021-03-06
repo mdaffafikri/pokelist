@@ -7,11 +7,10 @@ export default class Content extends Component {
     super(props);
 
     this.state = {
-      isLoaded: false,
-      next: "",
-      prev: null,
       pokemons: [],
       dialogueContent: "https://pokeapi.co/api/v2/pokemon/1/",
+      open: false,
+      deleteIndex: ''
     };
   }
 
@@ -39,50 +38,30 @@ export default class Content extends Component {
     return this.state.pokemons.findIndex((obj) => obj.name === string);
   };
 
-  nextPage = (link) => {
-    fetch(link)
-      .then((data) => data.json())
-      .then((json) => {
-        this.setState({
-          isLoaded: true,
-          pokemons: json.results,
-          next: json.next,
-          prev: json.previous,
-          number: this.state.number + 10,
-        });
-      });
-  };
-
-  prevPage = (link) => {
-    fetch(link)
-      .then((data) => data.json())
-      .then((json) => {
-        this.setState({
-          isLoaded: true,
-          pokemons: json.results,
-          next: json.next,
-          prev: json.previous,
-          number: this.state.number - 10,
-        });
-      });
-  };
-
   changeContent = (link) => {
     this.setState({ dialogueContent: link });
   };
 
-  deleteRow = (index) => {
-    if(window.confirm('Are u sure want to delete this row?'))
-    var array = [...this.state.pokemons]; // make a separate copy of the array    
-     if (index !== -1) {
-      array.splice(index, 1);
-      this.setState({pokemons: array});
-    }    
+  deleteRow = () => {
+      var array = [...this.state.pokemons]; // make a separate copy of the array    
+      if (this.state.deleteIndex !== -1) {
+        array.splice(this.state.deleteIndex, 1);
+        this.setState({pokemons: array});
+      }    
+      this.handleClose()
+  }
+
+  handleOpen = (index) => {
+    this.setState({open: true, deleteIndex: index})
+  }
+
+  handleClose = () => {
+    this.setState({open: false})
   }
 
   render() {
-    const { pokemons } = this.state; //state
-    const { changeContent } = this; //function
+    const { pokemons, open } = this.state; //state
+    const { changeContent, handleClose } = this; //function
     return (
       <div className="pokemonsTable">
 
@@ -106,8 +85,8 @@ export default class Content extends Component {
                     <i class="fa fa-info fa-lg" aria-hidden="true"></i>{" "}
                   </button>
                 </Mui.Tooltip>        
-                <Mui.Tooltip title="Delete Data">                  
-                  <button className="btn btn-link text-danger" onClick={() => this.deleteRow(this.indexPoke(rowData.name)) }>
+                <Mui.Tooltip title="Delete Data" arrow>                  
+                  <button className="btn btn-link text-danger" onClick={() => this.handleOpen(this.indexPoke(rowData.name)) }>
                     <i class="fa fa-trash fa-lg" aria-hidden="true"></i>
                   </button>
                 </Mui.Tooltip>
@@ -118,6 +97,23 @@ export default class Content extends Component {
           data={pokemons}
           title="Pokemon Database"
         />
+
+        <Mui.Dialog open={open} onClose={handleClose} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
+            <Mui.DialogTitle id="alert-dialog-title">{"Confirm"}</Mui.DialogTitle>
+            <Mui.DialogContent>
+              <Mui.DialogContentText id="alert-dialog-description">
+                Are you sure want to delete this row?
+              </Mui.DialogContentText>
+            </Mui.DialogContent>
+            <Mui.DialogActions>
+              <Mui.Button onClick={handleClose} color="default">
+                <strong>Cancel</strong>
+              </Mui.Button>
+              <Mui.Button onClick={this.deleteRow} color="secondary" autoFocus>
+                <strong>Delete</strong>
+              </Mui.Button>
+            </Mui.DialogActions>
+        </Mui.Dialog>
       </div>
     );
   }
