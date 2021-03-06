@@ -1,5 +1,5 @@
 import React, { Component, useState, useEffect } from "react";
-import MaterialTable, { MTableToolbar } from "material-table";
+import MaterialTable from "material-table";
 import * as Mui from "@material-ui/core";
 
 export default class Content extends Component {
@@ -72,7 +72,7 @@ export default class Content extends Component {
   };
 
   deleteRow = (index) => {
-    // if(confirm('Are u sure want to delete this row?') === true)
+    if(window.confirm('Are u sure want to delete this row?'))
     var array = [...this.state.pokemons]; // make a separate copy of the array    
      if (index !== -1) {
       array.splice(index, 1);
@@ -81,8 +81,8 @@ export default class Content extends Component {
   }
 
   render() {
-    const { pokemons, isLoaded, next, prev, number } = this.state; //state
-    const { nextPage, prevPage, changeContent } = this; //function
+    const { pokemons } = this.state; //state
+    const { changeContent } = this; //function
     return (
       <div className="pokemonsTable">
 
