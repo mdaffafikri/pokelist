@@ -1,6 +1,8 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { Component, useState, useEffect, useContext } from "react";
 import MaterialTable from "material-table";
 import * as Mui from "@material-ui/core";
+
+import { GlobalState } from "../providers/Global"
 
 export default class Content extends Component {
   constructor(props) {
@@ -59,7 +61,7 @@ export default class Content extends Component {
     this.setState({open: false})
   }
 
-  render() {
+  render() {    
     const { pokemons, open } = this.state; //state
     const { changeContent, handleClose } = this; //function
     return (
@@ -125,6 +127,8 @@ var PopDialogue = (props) => {
   let [sprite, setSprite] = useState(null);
   let [stats, setStats] = useState(null);
   let [loading, setLoading] = useState([]);
+
+  const msg = useContext(GlobalState) //global state using context
 
   let capitalize = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -254,7 +258,7 @@ var PopDialogue = (props) => {
                 class="btn btn-link text-danger"
                 data-dismiss="modal"
               >
-                Close
+                Close {msg}
               </button>
             </div>
           </div>
