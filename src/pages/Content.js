@@ -19,7 +19,7 @@ export default class Content extends Component {
   componentDidMount() {
     document.title = "PokeList";
 
-    fetch(`https://pokeapi.co/api/v2/pokemon/?offset=0&limit=500`)
+    fetch(`https://pokeapi.co/api/v2/pokemon/?offset=0&limit=802`)
       .then((data) => data.json())
       .then((json) => {
         this.setState({
@@ -84,12 +84,12 @@ export default class Content extends Component {
                     data-for="viewTip"
                     className="btn btn-link text-danger view"
                   >
-                    <i class="fa fa-info fa-lg" aria-hidden="true"></i>{" "}
+                    <i className="fa fa-info fa-lg" aria-hidden="true"></i>{" "}
                   </button>
                 </Mui.Tooltip>        
                 <Mui.Tooltip title="Delete Data" arrow>                  
                   <button className="btn btn-link text-danger" onClick={() => this.handleOpen(this.indexPoke(rowData.name)) }>
-                    <i class="fa fa-trash fa-lg" aria-hidden="true"></i>
+                    <i className="fa fa-trash fa-lg" aria-hidden="true"></i>
                   </button>
                 </Mui.Tooltip>
                 </>        
@@ -128,7 +128,7 @@ var PopDialogue = (props) => {
   let [stats, setStats] = useState(null);
   let [loading, setLoading] = useState([]);
 
-  const msg = useContext(GlobalState) //global state using context
+  // const cart = useContext(GlobalState) //global state using context
 
   let capitalize = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -176,7 +176,7 @@ var PopDialogue = (props) => {
               </h5>
               <button
                 type="button"
-                class="close"
+                className="close"
                 data-dismiss="modal"
                 aria-label="Close"
               >
@@ -194,10 +194,10 @@ var PopDialogue = (props) => {
                     <button
                       onClick={() => rotateSprite(true)}
                       type="button"
-                      class="btn btn-link text-danger"
+                      className="btn btn-link text-danger"
                     >
                       {" "}
-                      <i class="fa fa-undo fa-2x" aria-hidden="true"></i>{" "}
+                      <i className="fa fa-undo fa-2x" aria-hidden="true"></i>{" "}
                     </button>
                     <img
                       id="sprite"
@@ -209,44 +209,46 @@ var PopDialogue = (props) => {
                     <button
                       onClick={() => rotateSprite(false)}
                       type="button"
-                      class="btn btn-link text-danger"
+                      className="btn btn-link text-danger"
                     >
                       {" "}
                       <i
-                        class="fa fa-undo fa-flip-horizontal fa-2x"
+                        className="fa fa-undo fa-flip-horizontal fa-2x"
                         aria-hidden="true"
                       ></i>
                     </button>
                   </div>
                   <div>
                     <table className="table table-borderless table-sm text-left table-view">
-                      <tr>
-                        <td>Name</td>
-                        <td>:</td>
-                        <td>{capitalize(name)}</td>
-                      </tr>
-                      <tr>
-                        <td>Attack</td>
-                        <td>:</td>
-                        <td>{stats[1].base_stat}</td>
-                      </tr>
-                      <tr>
-                        <td>Defense</td>
-                        <td>:</td>
-                        <td>{stats[2].base_stat}</td>
-                      </tr>
-                      <tr>
-                        <td>Type</td>
-                        <td>:</td>
-                        <td>
-                          {type.map((item, index) => (
-                            <li className="list-unstyled" key={index}>
-                              {" "}
-                              {capitalize(item.type.name)}
-                            </li>
-                          ))}
-                        </td>
-                      </tr>
+                      <tbody>
+                        <tr>
+                          <td>Name</td>
+                          <td>:</td>
+                          <td>{capitalize(name)}</td>
+                        </tr>
+                        <tr>
+                          <td>Attack</td>
+                          <td>:</td>
+                          <td>{stats[1].base_stat}</td>
+                        </tr>
+                        <tr>
+                          <td>Defense</td>
+                          <td>:</td>
+                          <td>{stats[2].base_stat}</td>
+                        </tr>
+                        <tr>
+                          <td>Type</td>
+                          <td>:</td>
+                          <td>
+                            {type.map((item, index) => (
+                              <li className="list-unstyled" key={index}>
+                                {" "}
+                                {capitalize(item.type.name)}
+                              </li>
+                            ))}
+                          </td>
+                        </tr>
+                      </tbody>
                     </table>
                   </div>
                 </>
@@ -255,10 +257,10 @@ var PopDialogue = (props) => {
             <div className="modal-footer">
               <button
                 type="button"
-                class="btn btn-link text-danger"
+                className="btn btn-link text-danger"
                 data-dismiss="modal"
               >
-                Close {msg}
+                Close
               </button>
             </div>
           </div>
