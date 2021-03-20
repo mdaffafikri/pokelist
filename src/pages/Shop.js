@@ -37,7 +37,7 @@ function Shop() {
 
         cart.setItem(itemList)
         cart.setTotal(cart.total+1)
-        console.log(cart.item); 
+        // console.log(cart.item); 
 
         setNotifOpen(true) //notif
     }

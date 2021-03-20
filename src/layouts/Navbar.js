@@ -11,6 +11,26 @@ export default function Navbar() {
         setDrawerOpen(isOpen)
     }
 
+    let removeItem = (name) => {
+        var itemList = {...cart.item}
+        
+        if(itemList[name] <= 1){
+            delete itemList[name]
+            console.log();
+        }else{
+            itemList[name] --
+        }
+        cart.setItem(itemList)
+        cart.setTotal(cart.total-1)
+    }
+
+    let addItem = (name) => {        
+        var itemList = {...cart.item}
+        itemList[name] ++
+        cart.setItem(itemList)
+        cart.setTotal(cart.total+1)
+    }
+
     return (
         <div>            
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
@@ -49,8 +69,7 @@ export default function Navbar() {
                 </div>
             </nav>
 
-            <React.Fragment>
-                {/* <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button> */}
+            <React.Fragment>                
                 <Mui.Drawer anchor={'right'} open={drawerOpen} onClose={()=>toggleDrawer(false)}>
                     <div style={{ width: '250px', height:'100%', padding: '20px', borderLeft: '#dc3545 solid 5px'}}>
                         <h4>                    
@@ -59,19 +78,17 @@ export default function Navbar() {
                         <ul className="list-group list-group-flush">
                                 {(Object.keys(cart.item).length === 0) ? "Nothing..." :
                                     Object.keys(cart.item).map((key, i) => {
-                                        return(              
-                                            <>                    
-                                            <li className="list-group-item d-flex justify-content-between align-items-center">
+                                        return(                             
+                                            <li key={i} className="list-group-item d-flex justify-content-between align-items-center">
                                                 {key}                                        
                                                 <span>
-                                                    <button className="btn btn-link text-danger btn-sm"><i class="fa fa-minus" aria-hidden="true"></i></button>
+                                                    <button onClick={()=>removeItem(key)} className="btn btn-link text-danger btn-sm"><i className="fa fa-minus" aria-hidden="true"></i></button>
                                                     <span className="badge badge-danger badge-pill">
                                                         {cart.item[key]}
                                                     </span>
-                                                    <button className="btn btn-link text-danger btn-sm"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                                                    <button onClick={()=>addItem(key)} className="btn btn-link text-danger btn-sm"><i className="fa fa-plus" aria-hidden="true"></i></button>
                                                 </span>
                                             </li>                                                     
-                                            </>
                                         )
                                     })
                                 }        
@@ -79,7 +96,7 @@ export default function Navbar() {
                         <br/>
                     </div>
                     <button className="btn btn-sm btn-danger mb-3" style={{position: 'absolute', bottom: 0}}>
-                        <i class="fa fa-check" aria-hidden="true"></i> &nbsp;
+                        <i className="fa fa-check" aria-hidden="true"></i> &nbsp;
                         Checkout
                     </button>
                 </Mui.Drawer>
