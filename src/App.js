@@ -6,6 +6,7 @@ import * as Muicon from "@material-ui/icons";
 import Navbar from "./layouts/Navbar";
 import Content from "./pages/Content";
 import Shop from "./pages/Shop"
+import Timeline from "./pages/Timeline"
 
 import { GlobalState } from "./providers/Global"
 
@@ -33,8 +34,12 @@ function App() {
 
         <Navbar></Navbar>
         <div className="container mt-5">
-            <Shop></Shop>            
+            <Shop></Shop>      
+            <br/>
             <Content></Content>
+            <br/>
+            <Timeline></Timeline>
+            <br/>
         </div>
 
       </GlobalState.Provider>

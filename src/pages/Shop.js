@@ -152,7 +152,6 @@ function Shop() {
                 </Mui.Grid>
 
             </Mui.Grid>
-            <br/>
             
             <Mui.Snackbar
                 anchorOrigin={{
