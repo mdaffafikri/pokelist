@@ -18,7 +18,7 @@ export default class Content extends Component {
   }
 
   componentDidMount() {
-    document.title = "PokeList";
+    // document.title = "PokeList";
 
     fetch(`https://pokeapi.co/api/v2/pokemon/?offset=0&limit=802`)
       .then((data) => data.json())
