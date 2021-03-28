@@ -1,8 +1,9 @@
 import React, { Component, useState, useEffect, useContext } from "react";
 import MaterialTable from "material-table";
 import * as Mui from "@material-ui/core";
+import anime from 'animejs';
 
-import { GlobalState } from "../providers/Global"
+// import { GlobalState } from "../providers/Global"
 
 export default class Content extends Component {
   constructor(props) {
@@ -152,11 +153,18 @@ var PopDialogue = (props) => {
 
   let rotateSprite = (front) => {
     if (front) {
-      document.getElementById("sprite").src = sprite.front_default;
+      document.getElementById("sprite").src = sprite.front_default;      
     } else {
       document.getElementById("sprite").src = sprite.back_default;
     }
+      rotateAnimation('.sprite').play()
   };
+
+  let rotateAnimation = (trgt) => anime({
+    scale: [0.8, 1],
+    duration: 500,
+    targets: trgt
+  })
 
   return (
     <>
