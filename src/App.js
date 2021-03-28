@@ -1,7 +1,7 @@
 // import logo from './logo.svg';
 import "./App.css";
-import * as Mui from "@material-ui/core";
-import * as Muicon from "@material-ui/icons";
+// import * as Mui from "@material-ui/core";
+// import * as Muicon from "@material-ui/icons";
 
 import Navbar from "./layouts/Navbar";
 import Content from "./pages/Content";
