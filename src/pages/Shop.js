@@ -55,7 +55,7 @@ function Shop() {
         <div>
 
             <Mui.Grid container direction="row" justify="center" alignItems="center" spacing={2}>
-                <Mui.Grid item md={3} xs={12}>
+                <Mui.Grid item md={3} sm={6} xs={12}>
                     <Mui.Card className={classes.root}>
                         <Mui.CardContent>
                             <Mui.Typography className={classes.title} color="textSecondary" gutterBottom>
@@ -79,7 +79,7 @@ function Shop() {
                     </Mui.Card>                
                 </Mui.Grid>
                 
-                <Mui.Grid item md={3} xs={12}>
+                <Mui.Grid item md={3} sm={6} xs={12}>
                     <Mui.Card className={classes.root}>
                         <Mui.CardContent>
                             <Mui.Typography className={classes.title} color="textSecondary" gutterBottom>
@@ -103,7 +103,7 @@ function Shop() {
                     </Mui.Card>                
                 </Mui.Grid>
 
-                <Mui.Grid item md={3} xs={12}>
+                <Mui.Grid item md={3} sm={6} xs={12}>
                     <Mui.Card className={classes.root}>
                         <Mui.CardContent>
                             <Mui.Typography className={classes.title} color="textSecondary" gutterBottom>
@@ -127,7 +127,7 @@ function Shop() {
                     </Mui.Card>                
                 </Mui.Grid>
 
-                <Mui.Grid item md={3} xs={12}>
+                <Mui.Grid item md={3} sm={6} xs={12}>
                     <Mui.Card className={classes.root}>
                         <Mui.CardContent>
                             <Mui.Typography className={classes.title} color="textSecondary" gutterBottom>
@@ -146,6 +146,102 @@ function Shop() {
                         <Mui.CardActions>
                             <Mui.Tooltip title="Add to Cart" arrow>
                                 <Mui.Button onClick={ () => addToCart('Master Ball')} className={classes.cardBtn} size="small"><Muicon.AddShoppingCart></Muicon.AddShoppingCart></Mui.Button>
+                            </Mui.Tooltip>                            
+                        </Mui.CardActions>
+                    </Mui.Card>                
+                </Mui.Grid>
+
+                <Mui.Grid item md={3} sm={6} xs={12}>
+                    <Mui.Card className={classes.root}>
+                        <Mui.CardContent>
+                            <Mui.Typography className={classes.title} color="textSecondary" gutterBottom>
+                            Consumable
+                            </Mui.Typography>
+                            <Mui.Typography variant="h5" component="h2">
+                            Soda Pop
+                            </Mui.Typography>
+                            <Mui.Typography className={classes.pos} color="textSecondary">
+                            <img width="50px" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/soda-pop.png" alt="soda pop"/>
+                            </Mui.Typography>
+                            <Mui.Typography variant="body2" component="p">
+                            A highly carbonated soda drink. When consumed, it restores up to 50 HP to an injured Pokémon.
+                            </Mui.Typography>
+                        </Mui.CardContent>
+                        <Mui.CardActions>
+                            <Mui.Tooltip title="Add to Cart" arrow>
+                                <Mui.Button onClick={ () => addToCart('Soda Pop')} className={classes.cardBtn} size="small"><Muicon.AddShoppingCart></Muicon.AddShoppingCart></Mui.Button>
+                            </Mui.Tooltip>                            
+                        </Mui.CardActions>
+                    </Mui.Card>                
+                </Mui.Grid>
+
+                <Mui.Grid item md={3} sm={6} xs={12}>
+                    <Mui.Card className={classes.root}>
+                        <Mui.CardContent>
+                            <Mui.Typography className={classes.title} color="textSecondary" gutterBottom>
+                            Consumable
+                            </Mui.Typography>
+                            <Mui.Typography variant="h5" component="h2">
+                            Rare Candy
+                            </Mui.Typography>
+                            <Mui.Typography className={classes.pos} color="textSecondary">
+                            <img width="50px" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/rare-candy.png" alt="rare candy"/>
+                            </Mui.Typography>
+                            <Mui.Typography variant="body2" component="p">
+                            A candy that is packed with energy. It raises the level of a POKéMON by one.
+                            </Mui.Typography>
+                        </Mui.CardContent>
+                        <Mui.CardActions>
+                            <Mui.Tooltip title="Add to Cart" arrow>
+                                <Mui.Button onClick={ () => addToCart('Rare Candy')} className={classes.cardBtn} size="small"><Muicon.AddShoppingCart></Muicon.AddShoppingCart></Mui.Button>
+                            </Mui.Tooltip>                            
+                        </Mui.CardActions>
+                    </Mui.Card>                
+                </Mui.Grid>
+
+                <Mui.Grid item md={3} sm={6} xs={12}>
+                    <Mui.Card className={classes.root}>
+                        <Mui.CardContent>
+                            <Mui.Typography className={classes.title} color="textSecondary" gutterBottom>
+                            Consumable
+                            </Mui.Typography>
+                            <Mui.Typography variant="h5" component="h2">
+                            Lava Cookie
+                            </Mui.Typography>
+                            <Mui.Typography className={classes.pos} color="textSecondary">
+                            <img width="50px" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/lava-cookie.png" alt="lava cookie"/>
+                            </Mui.Typography>
+                            <Mui.Typography variant="body2" component="p">
+                            Lavaridge Town’s local specialty. It can be used once to heal all the status conditions of a Pokémon.
+                            </Mui.Typography>
+                        </Mui.CardContent>
+                        <Mui.CardActions>
+                            <Mui.Tooltip title="Add to Cart" arrow>
+                                <Mui.Button onClick={ () => addToCart('Lava Cookie')} className={classes.cardBtn} size="small"><Muicon.AddShoppingCart></Muicon.AddShoppingCart></Mui.Button>
+                            </Mui.Tooltip>                            
+                        </Mui.CardActions>
+                    </Mui.Card>                
+                </Mui.Grid>
+
+                <Mui.Grid item md={3} sm={6} xs={12}>
+                    <Mui.Card className={classes.root}>
+                        <Mui.CardContent>
+                            <Mui.Typography className={classes.title} color="textSecondary" gutterBottom>
+                            Consumable
+                            </Mui.Typography>
+                            <Mui.Typography variant="h5" component="h2">
+                            Honey
+                            </Mui.Typography>
+                            <Mui.Typography className={classes.pos} color="textSecondary">
+                            <img width="50px" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/honey.png" alt="honey"/>
+                            </Mui.Typography>
+                            <Mui.Typography variant="body2" component="p">
+                            A sweet honey with a lush aroma that attracts wild Pokémon when it is used.
+                            </Mui.Typography>
+                        </Mui.CardContent>
+                        <Mui.CardActions>
+                            <Mui.Tooltip title="Add to Cart" arrow>
+                                <Mui.Button onClick={ () => addToCart('Honey')} className={classes.cardBtn} size="small"><Muicon.AddShoppingCart></Muicon.AddShoppingCart></Mui.Button>
                             </Mui.Tooltip>                            
                         </Mui.CardActions>
                     </Mui.Card>                

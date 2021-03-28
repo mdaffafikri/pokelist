@@ -14,6 +14,7 @@ function ScrollTop() {
         borderRadius: '50px',
         textAlign: 'center',
         boxShadow: '2px 2px 3px #999',
+        zIndex: '100'
     }
 
     ///Event handler
