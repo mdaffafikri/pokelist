@@ -7,6 +7,7 @@ import Navbar from "./layouts/Navbar";
 import Content from "./pages/Content";
 import Shop from "./pages/Shop"
 import Timeline from "./pages/Timeline"
+import ScrollTop from "./components/ScrollTop"
 
 import { GlobalState } from "./providers/Global"
 
@@ -50,6 +51,7 @@ function App() {
             &copy; 2021 
         </div>
       </footer>
+      <ScrollTop></ScrollTop>
     </div>
   );
 }
