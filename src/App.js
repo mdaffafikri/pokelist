@@ -34,10 +34,11 @@ function App() {
 
         <Navbar></Navbar>
         <div className="container mt-5">
+            <br id="pokeshop"/>
             <Shop></Shop>      
-            <br/>
+            <br id="pokedex"/>
             <Content></Content>
-            <br/>
+            <br id="history"/>
             <Timeline></Timeline>
             <br/>
         </div>
@@ -45,7 +46,9 @@ function App() {
       </GlobalState.Provider>
 
       <footer>
-        <div className="mt-5 pb-5">&copy; 2021 </div>
+        <div className="mt-5 pb-3 pt-3 bg-dark text-light">
+            &copy; 2021 
+        </div>
       </footer>
     </div>
   );
