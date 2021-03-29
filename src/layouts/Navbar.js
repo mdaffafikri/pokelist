@@ -44,7 +44,7 @@ export default function Navbar() {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">          
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                        <a className="nav-link" href="#pokeshop">
+                        <a className="nav-link" href={() => false}>
                         PokeShop
                         </a>
                     </li>
