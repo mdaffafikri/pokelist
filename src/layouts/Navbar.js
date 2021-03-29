@@ -61,13 +61,13 @@ export default function Navbar() {
                 </ul>
                 <ul className="navbar-nav ml-auto">
 
-                        <li className="nav-item">
-                        <a className="nav-link" href={() => false} onClick={()=>toggleDrawer(true)}>
+                    <li className="nav-item">
+                        <Mui.Button className="nav-link" onClick={()=>toggleDrawer(true)}>
                             <Mui.Badge badgeContent={cart.total} invisiblity="true" color="secondary">
                                 <Muicon.ShoppingCart>
                                 </Muicon.ShoppingCart>                        
                             </Mui.Badge>                            
-                        </a>
+                        </Mui.Button>
                     </li>
 
                     </ul>
